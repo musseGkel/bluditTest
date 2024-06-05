@@ -106,4 +106,22 @@ public class ContentPage {
                 By.xpath("//tbody/tr[2]/td[1]/a[1]")));
         return draftContentElement.getText().equals(contentTitle);
     }
+
+    public void clickStickyContentLink() {
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Set up your new site"))).click();
+    }
+
+    public void selectStatus(String status) {
+        WebElement statusDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.id("jsstatus")));
+        statusDropdown.click();
+        WebElement statusOption = statusDropdown.findElement(By.xpath("//option[contains(text(), '" + status + "')]"));
+        statusOption.click();
+    }
+
+    public boolean isStickyContentDisplayed(String contentTitle) {
+        WebElement stickyContentElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//tbody/tr[12]/td[1]/a[1]")));
+        return stickyContentElement.getText().equals(contentTitle);
+    }
+
 }
