@@ -12,6 +12,7 @@ public class BluditPage {
 
     public BluditPage(WebDriver driver) {
         this.driver = driver;
+        driver.get("http://localhost:8080/admin/");
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 

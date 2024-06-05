@@ -29,7 +29,6 @@ public class AddContentTest {
 
     @Test
     public void testAddContent() {
-        driver.get("http://localhost:8080/admin/");
 
         bluditPage.login("admin", "password");
 
