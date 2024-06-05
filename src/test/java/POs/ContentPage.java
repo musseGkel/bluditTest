@@ -124,4 +124,20 @@ public class ContentPage {
         return stickyContentElement.getText().equals(contentTitle);
     }
 
+    public void clickFollowBluditLink() {
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Follow Bludit"))).click();
+    }
+
+    public void clickDeleteButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Delete']"))).click();
+    }
+
+    public void confirmAlert() {
+        driver.switchTo().alert().accept();
+    }
+
+    public boolean isContentPresent(String contentTitle) {
+        return driver.getPageSource().contains(contentTitle);
+    }
+
 }
