@@ -3,6 +3,7 @@ package POs;
 import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -35,4 +36,34 @@ public class ContentPage {
                         By.xpath("//tbody/tr[4]/td[1]/a[1]")))
                 .isDisplayed();
     }
+
+    public void clickContentLink() {
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Content"))).click();
+    }
+
+    public void clickTestContentLink() {
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Test Content"))).click();
+    }
+
+    public void clickAdvancedButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//body/div[@id='bl-container']/div[1]/div[2]/form[1]/div[1]/div[2]/ul[1]/li[7]/h2[1]")))
+                .click();
+    }
+
+    public void clearFriendlyUrl() {
+        WebElement urlField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("jsslug")));
+        urlField.clear();
+    }
+
+    public void enterFriendlyUrl(String url) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("jsslug"))).sendKeys(url);
+    }
+
+    public String getFriendlyUrl(String contentTitle) {
+        WebElement friendlyUrlElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//tbody/tr[4]/td[3]/a[1]")));
+        return friendlyUrlElement.getText();
+    }
+
 }
