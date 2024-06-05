@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ContentPage {
@@ -82,4 +83,15 @@ public class ContentPage {
         return positionElement.getAttribute("value");
     }
 
+    public void selectParent(String parentOption) {
+        WebElement parentDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("jsparent")));
+        Select parentSelect = new Select(parentDropdown);
+        parentSelect.selectByVisibleText(parentOption);
+    }
+
+    public String getSelectedParent() {
+        WebElement parentDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("jsparent")));
+        Select parentSelect = new Select(parentDropdown);
+        return parentSelect.getFirstSelectedOption().getText();
+    }
 }
