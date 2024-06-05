@@ -66,4 +66,20 @@ public class ContentPage {
         return friendlyUrlElement.getText();
     }
 
+    public void clearPositionField() {
+        WebElement positionField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("jsposition")));
+        positionField.clear();
+    }
+
+    public void enterPosition(String position) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("jsposition"))).sendKeys(position);
+    }
+
+    public String getPositionValue() {
+        WebElement positionElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//input[@id='jsposition']")));
+
+        return positionElement.getAttribute("value");
+    }
+
 }
