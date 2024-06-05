@@ -94,4 +94,16 @@ public class ContentPage {
         Select parentSelect = new Select(parentDropdown);
         return parentSelect.getFirstSelectedOption().getText();
     }
+
+    public void clickSaveAsDraft() {
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[contains(text(), 'Save as draft')]")))
+                .click();
+    }
+
+    public boolean isDraftContentDisplayed(String contentTitle) {
+        WebElement draftContentElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//tbody/tr[2]/td[1]/a[1]")));
+        return draftContentElement.getText().equals(contentTitle);
+    }
 }
