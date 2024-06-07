@@ -83,4 +83,35 @@ public class UserPage {
         String alertText = alertElement.getText().trim();
         return alertText.equals(alertText);
     }
+
+    public void clickFirstUsername() {
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//tbody/tr[1]/td[1]/a"))).click();
+    }
+
+    public void enterFacebookLink(String facebookLink) {
+        WebElement facebookField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.id("jsfacebook")));
+        facebookField.clear();
+        facebookField.sendKeys(facebookLink);
+    }
+
+    public void enterInstagramLink(String instagramLink) {
+        WebElement instagramField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.id("jsinstagram")));
+        instagramField.clear();
+        instagramField.sendKeys(instagramLink);
+    }
+
+    public String getFacebookLink() {
+        WebElement facebookField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.id("jsfacebook")));
+        return facebookField.getAttribute("value");
+    }
+
+    public String getInstagramLink() {
+        WebElement instagramField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.id("jsinstagram")));
+        return instagramField.getAttribute("value");
+    }
 }
