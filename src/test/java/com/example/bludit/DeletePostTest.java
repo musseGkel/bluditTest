@@ -12,7 +12,6 @@ import POs.ContentPage;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DeletePostTest {
 

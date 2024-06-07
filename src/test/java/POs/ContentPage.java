@@ -63,7 +63,7 @@ public class ContentPage {
 
     public String getFriendlyUrl(String contentTitle) {
         WebElement friendlyUrlElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//tbody/tr[4]/td[3]/a[1]")));
+                By.xpath("//tbody/tr[16]/td[3]/a[1]")));
         return friendlyUrlElement.getText();
     }
 
