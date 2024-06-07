@@ -120,7 +120,7 @@ public class ContentPage {
 
     public boolean isStickyContentDisplayed(String contentTitle) {
         WebElement stickyContentElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//tbody/tr[12]/td[1]/a[1]")));
+                By.xpath("//tbody/tr[14]/td[1]/a[1]")));
         return stickyContentElement.getText().equals(contentTitle);
     }
 
