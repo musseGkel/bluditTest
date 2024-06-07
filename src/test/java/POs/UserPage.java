@@ -2,6 +2,7 @@ package POs;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -54,4 +55,32 @@ public class UserPage {
         wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Users"))).click();
     }
 
+    public void clickUserLink(String username) {
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(), '" + username + "')]")))
+                .click();
+    }
+
+    public void clickChangePasswordLink() {
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Change password"))).click();
+    }
+
+    public void enterNewPassword(String newPassword) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("jsnew_password"))).sendKeys(newPassword);
+    }
+
+    public void confirmNewPassword(String newPassword) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("jsconfirm_password"))).sendKeys(newPassword);
+    }
+
+    public void clickSavePasswordButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(), 'Save')]"))).click();
+    }
+
+    public boolean isAlertDisplayed(String alertMessage) {
+        WebElement alertElement = wait
+                .until(ExpectedConditions.visibilityOfElementLocated(
+                        By.id("alert")));
+        String alertText = alertElement.getText().trim();
+        return alertText.equals(alertText);
+    }
 }
