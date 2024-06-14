@@ -63,7 +63,7 @@ public class ContentPage {
 
     public String getFriendlyUrl(String contentTitle) {
         WebElement friendlyUrlElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//tbody/tr[16]/td[3]/a[1]")));
+                By.linkText("/new-post-url")));
         return friendlyUrlElement.getText();
     }
 
@@ -120,7 +120,7 @@ public class ContentPage {
 
     public boolean isStickyContentDisplayed(String contentTitle) {
         WebElement stickyContentElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//tbody/tr[14]/td[1]/a[1]")));
+                By.xpath("//tbody/tr[6]/td[1]/a[1]")));
         return stickyContentElement.getText().equals(contentTitle);
     }
 

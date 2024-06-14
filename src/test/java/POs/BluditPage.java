@@ -2,7 +2,9 @@ package POs;
 
 import java.time.Duration;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -23,6 +25,15 @@ public class BluditPage {
     }
 
     public void logout() {
+        try {
+            WebElement closeButton = driver.findElement(By.xpath("//div[@class='alert-ok']//button"));
+            if (closeButton.isDisplayed()) {
+                closeButton.click();
+                wait.until(ExpectedConditions.invisibilityOf(closeButton));
+            }
+        } catch (NoSuchElementException e) {
+        }
         wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Log out"))).click();
     }
+
 }
